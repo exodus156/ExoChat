@@ -1,0 +1,29 @@
+{
+  "name": "webpack-boilerplate",
+  "version": "1.0.0",
+  "description": "Simple webpack + babel boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "build": "node_modules/.bin/webpack --mode production",
+    "server": "webpack-dev-server --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exodus156/webpack_boilerplate.git"
+  },
+  "author": "exodus156",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/exodus156/webpack_boilerplate/issues"
+  },
+  "homepage": "https://github.com/exodus156/webpack_boilerplate#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  }
+}
