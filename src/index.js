@@ -1,5 +1,8 @@
 /* Materialize initials code */
 document.addEventListener('DOMContentLoaded', () => {
-    let elems = document.querySelectorAll('.sidenav');
-    let instances = M.Sidenav.init(elems, {});
+    let navigationElements = document.querySelectorAll('.sidenav'); //Mobile sidenav selector
+    M.Sidenav.init(navigationElements, {});//Mobile sidenav activator
+
+    let modalElements = document.querySelectorAll('.modal');
+    M.Modal.init(modalElements, {});
   });
