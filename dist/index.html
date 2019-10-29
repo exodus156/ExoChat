@@ -19,21 +19,141 @@
         <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons orange-text text-accent-4">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="" class="orange-text text-accent-4 logged-in">Czat</a></li>
-          <li><a href="" class="orange-text text-accent-4 logged-in">Konto</a></li>
-          <li><a href="" class="orange-text text-accent-4 logged-in">Wyloguj</a></li>
-          <li><a href="" class="orange-text text-accent-4 logged-out">Zaloguj</a></li>
-          <li><a href="" class="orange-text text-accent-4 logged-out">Zarejestruj</a></li>
+          <li><a href="" data-target="modal-account" class="orange-text text-accent-4 logged-in">Konto</a></li>
+          <li><a href="" id="logout" class="orange-text text-accent-4 logged-in">Wyloguj</a></li>
+          <li><a href="" data-target="modal-login" class="orange-text text-accent-4 logged-out">Zaloguj</a></li>
+          <li><a href="" data-target="modal-signup" class="orange-text text-accent-4 logged-out">Zarejestruj</a></li>
         </ul>
       </div>
     </nav>
   
     <ul class="sidenav" id="mobile-menu">
       <li><a href="" class="orange-text text-accent-4 logged-in">Czat</a></li>
-      <li><a href="" class="orange-text text-accent-4 logged-in">Konto</a></li>
-      <li><a href="" class="orange-text text-accent-4 logged-in">Wyloguj</a></li>
-      <li><a href="" class="orange-text text-accent-4 logged-out">Zaloguj</a></li>
-      <li><a href="" class="orange-text text-accent-4 logged-out">Zarejestruj</a></li>
+      <li><a href="" data-target="modal-account" class="orange-text text-accent-4 logged-in">Konto</a></li>
+      <li><a href="" id="logout" class="orange-text text-accent-4 logged-in">Wyloguj</a></li>
+      <li><a href="" data-target="modal-login" class="orange-text text-accent-4 logged-out">Zaloguj</a></li>
+      <li><a href="" data-target="modal-signup" class="orange-text text-accent-4 logged-out">Zarejestruj</a></li>
     </ul>  
+  </section>
+
+  <section id="chatroom" class="container">
+    <ul class="collection" id="messages">
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+      <li class="collection-item">
+        <span>Nickname</span>
+        <span>Text</span>
+        <span>Date</span>
+      </li>
+    </ul>
+
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12 white">
+            <textarea id="chatmessage" class="materialize-textarea" placeholder="Tutaj napisz swoją wiadomość..."></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <button class="btn waves-effect waves-light orange accent-4 col s2 offset-s5" type="submit" id="sendmessage">Wyślij
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </form>
+    </div>
   </section>
 
 <!--Materialize JS-->

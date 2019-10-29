@@ -1,3 +1,18 @@
 #navbar{
     font-weight: 600;
 }
+
+#chatroom{
+    margin-top: 60px;
+    max-width: 800px;
+}
+
+#messages{
+    max-height: 420px !important;
+    overflow: auto;
+    overflow-wrap: break-word;
+}
+
+#sendmessage{
+    min-width: 120px !important;
+}
