@@ -4,13 +4,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ExoChat</title>
+  <!--Google icon font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Materialize CSS-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
-<body>
-  <section class="navbar">
-    
+<body class="grey lighten-3">
+
+  <section id="navbar">
+    <nav class="grey lighten-2">
+      <div class="nav-wrapper container">
+        <a class="brand-logo orange-text text-accent-4">ExoChat</a>
+        <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons orange-text text-accent-4">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="" class="orange-text text-accent-4 logged-in">Czat</a></li>
+          <li><a href="" class="orange-text text-accent-4 logged-in">Konto</a></li>
+          <li><a href="" class="orange-text text-accent-4 logged-in">Wyloguj</a></li>
+          <li><a href="" class="orange-text text-accent-4 logged-out">Zaloguj</a></li>
+          <li><a href="" class="orange-text text-accent-4 logged-out">Zarejestruj</a></li>
+        </ul>
+      </div>
+    </nav>
+  
+    <ul class="sidenav" id="mobile-menu">
+      <li><a href="" class="orange-text text-accent-4 logged-in">Czat</a></li>
+      <li><a href="" class="orange-text text-accent-4 logged-in">Konto</a></li>
+      <li><a href="" class="orange-text text-accent-4 logged-in">Wyloguj</a></li>
+      <li><a href="" class="orange-text text-accent-4 logged-out">Zaloguj</a></li>
+      <li><a href="" class="orange-text text-accent-4 logged-out">Zarejestruj</a></li>
+    </ul>  
   </section>
 
 <!--Materialize JS-->
