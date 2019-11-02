@@ -18,8 +18,7 @@
       <div class="nav-wrapper container">
         <a class="brand-logo orange-text text-accent-4">ExoChat</a>
         <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons orange-text text-accent-4">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a class="orange-text text-accent-4 logged-in">Czat</a></li>
+        <ul class="right hide-on-med-and-down">          
           <li><a data-target="modal-account" class="orange-text text-accent-4 logged-in modal-trigger">Konto</a></li>
           <li><a id="logout" class="orange-text text-accent-4 logged-in modal-trigger">Wyloguj</a></li>
           <li><a data-target="modal-login" class="orange-text text-accent-4 logged-out modal-trigger">Zaloguj</a></li>
@@ -29,8 +28,7 @@
     </nav>
     
     <!--Side Navbar section-->
-    <ul class="sidenav" id="mobile-menu">
-      <li><a class="orange-text text-accent-4 logged-in">Czat</a></li>
+    <ul class="sidenav" id="mobile-menu">      
       <li><a data-target="modal-account" class="orange-text text-accent-4 logged-in modal-trigger">Konto</a></li>
       <li><a id="logout" class="orange-text text-accent-4 logged-in modal-trigger">Wyloguj</a></li>
       <li><a data-target="modal-login" class="orange-text text-accent-4 logged-out modal-trigger">Zaloguj</a></li>
@@ -51,7 +49,7 @@
 
     <!--Textarea for new message-->
     <div class="row">
-      <form class="col s12">
+      <form class="col s12" id="messageform">
         <div class="row">
           <div class="input-field col s12 white z-depth-1">
             <textarea id="chatmessage" class="materialize-textarea" placeholder="Tutaj napisz swoją wiadomość..." required></textarea>
@@ -80,7 +78,7 @@
         <div class="row">
           <h4 class="col s4 offset-s3 offset-m4">Logowanie</h4>
         </div>
-        <form>
+        <form id="loginform">
           <div class="row">
             <div class="input-field col s12">
               <input id="login_email" type="email" class="validate" required>
@@ -108,7 +106,7 @@
         <div class="row">
           <h4 class="col s4 offset-s3 offset-m4">Rejestracja</h4>
         </div>
-        <form>
+        <form id="signupform">
           <div class="row">
             <div class="input-field col s12">
               <input id="signup_email" type="email" class="validate" required>
@@ -152,6 +150,7 @@
 <!-- Other firebase addons-->
 <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
 
 <script>
   // Your web app's Firebase configuration
