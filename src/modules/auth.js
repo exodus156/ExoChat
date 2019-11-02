@@ -15,22 +15,34 @@ class AuthRegister {
                 messages: 0
             };
             db.collection('users').doc(cred.user.uid).set(newUser).then().catch((error) => {console.log(error);}); //adds user additional data to database
+            if(cred !== null){
+                alert("Pomyślnie zarejestrowano!")
+            }
         })
         .catch(error => {
-            console.log(error);
+            alert(error.message);
         })
     }
 };
 
+/* Logs user in fireauth */
 class AuthLogin {
     constructor(email, password){
         this.email = email,
         this.password = password
     }
     init(){
-        auth.signInWithEmailAndPassword(this.email, this.password).then().catch((error) => {console.log(error);}); //Logs user in
+        auth.signInWithEmailAndPassword(this.email, this.password)
+        .then(cred => {
+            if(cred !== null){
+                alert("Pomyślnie zalogowano!")
+            }
+        })
+        .catch((error) => {
+            alert(error.message);
+        })
     }
-}
+};
 
 
 /* Exports */

@@ -16,3 +16,7 @@
 #sendmessage{
     min-width: 120px !important;
 }
+
+.modal-trigger:hover{
+    cursor: pointer;
+}
