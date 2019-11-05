@@ -6,7 +6,6 @@ class AccountModal {
     init(){
         db.collection("users").where('uid', '==', this.uid).get().then((snapshot) => {
             snapshot.docs.forEach(doc =>{
-                console.log(doc.data());
                 /* Data format */
                 const when = dateFns.distanceInWordsToNow(
                     doc.data().created.toDate(),

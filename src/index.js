@@ -32,9 +32,17 @@
   /* Chatroom section */
   const chatroomSection = document.querySelector("#chatroom");
 
+  /* Message form */
+  const messageForm = document.querySelector("#messageform");
+  const chatMessage = document.querySelector("#chatmessage");
+
+  /* Messages collection */
+  const messages = document.querySelector("#messages");
+
 /* Imports */
 import {AuthRegister, AuthLogin} from './modules/auth';
 import AccountModal from './modules/account';
+import Message from './modules/message';
 
 /* Materialize initials code */
 document.addEventListener('DOMContentLoaded', () => {
@@ -46,6 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* Chatroom code */
+
+/* RegEx pattern */
+const pattern = /^[^<>]{1,}$/;
 
 /* USER LOGGED IN/OUT */
 auth.onAuthStateChanged((user) => {
@@ -65,11 +76,13 @@ auth.onAuthStateChanged((user) => {
     /* Sign user out */
     signOutButton.addEventListener('click', (e) => {
       e.preventDefault();
-      auth.signOut()
+      unsub();
+      auth.signOut();
     });
 
     signOutButtonSideNav.addEventListener('click', (e) => {
       e.preventDefault();
+      unsub();
       auth.signOut()
     });
 
@@ -78,6 +91,39 @@ auth.onAuthStateChanged((user) => {
       e.preventDefault();
       let account = new AccountModal(user.uid, accountModal);
       account.init();
+    })
+
+    /* Main chat code - sending messages */
+    messageForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if(pattern.test(chatMessage.value)){
+        const message = new Message(user.uid, chatMessage.value);
+        message.init();
+        messageForm.reset();
+      }
+    })
+
+    /* Main chat code - updating chat window */
+    const unsub = db.collection('chatroom').orderBy('created_at').onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach(change => {
+        const doc = change.doc.data();
+        if(change.type === 'added'){
+          const time = dateFns.distanceInWordsToNow(
+            doc.created_at.toDate(),
+            { includeSeconds: true,
+              addSuffix: true }
+          )
+          messages.innerHTML +=
+          `
+          <li class="collection-item">
+            <span class="username">${doc.username}</span>
+            <p class="text">${doc.text}</p>
+            <span class="time">${time}</span>
+          </li>
+          `
+        }
+      })
     })
   }
   else{
@@ -92,9 +138,6 @@ auth.onAuthStateChanged((user) => {
     signOutButton.classList.add("hidden");
     signOutButtonSideNav.classList.add("hidden");
     chatroomSection.classList.add("hidden");
-
-    /* RegEx pattern */
-    const pattern = /^[^<>]{1,}$/;
 
     /* Register user part */
     registerFrom.addEventListener('submit', (e) => {
@@ -125,7 +168,7 @@ auth.onAuthStateChanged((user) => {
       
         loginForm.reset();
         M.Modal.getInstance(loginModal).close();
-      }else{
+      }else if(pattern.test(loginEmail.value.trim()) === false && pattern.test(loginPassword.value) === false){
         alert("Użyto niedozwolonych znaków podczas logowania, proszę spróbować ponownie!")
       }
     });

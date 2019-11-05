@@ -6,22 +6,29 @@ class AuthRegister {
         this.name = name
     }
     init(){
-        auth.createUserWithEmailAndPassword(this.email, this.password) //creates user with email and password
-        .then( cred => {
-            const date = new Date(); //current date for timestamps
-            const newUser = {
-                uid: cred.user.uid,
-                username: this.name,
-                created: firebase.firestore.Timestamp.fromDate(date),
-                messages: 0
-            };
-            db.collection('users').doc(cred.user.uid).set(newUser).then().catch((error) => {console.log(error);}); //adds user additional data to database
-            if(cred !== null){
-                alert("Pomyślnie zarejestrowano!")
+        db.collection("users").where("username", "==", this.name).get()
+        .then((snapshot) => {
+            if(snapshot.docs.length === 0){
+                auth.createUserWithEmailAndPassword(this.email, this.password) //creates user with email and password
+                .then( cred => {
+                    const date = new Date(); //current date for timestamps
+                    const newUser = {
+                        uid: cred.user.uid,
+                        username: this.name,
+                        created: firebase.firestore.Timestamp.fromDate(date),
+                        messages: 0
+                    };
+                    db.collection('users').doc(cred.user.uid).set(newUser).then().catch((error) => {console.log(error);}); //adds user additional data to database
+                    if(cred !== null){
+                        alert("Pomyślnie zarejestrowano!")
+                    }
+                })
+                .catch(error => {
+                    alert(error.message);
+                })
+            }else{
+                alert("Użytkownik o takim nicku już istnieje !")
             }
-        })
-        .catch(error => {
-            alert(error.message);
         })
     }
 };

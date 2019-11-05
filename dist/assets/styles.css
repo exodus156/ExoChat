@@ -24,3 +24,15 @@
 .hidden{
     display: none;
 }
+
+.username{
+    font-weight: bold;
+}
+.time{
+  font-size: 0.7em;
+  color: #999;
+}
+.text{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
