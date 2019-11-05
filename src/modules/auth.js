@@ -10,6 +10,7 @@ class AuthRegister {
         .then( cred => {
             const date = new Date(); //current date for timestamps
             const newUser = {
+                uid: cred.user.uid,
                 username: this.name,
                 created: firebase.firestore.Timestamp.fromDate(date),
                 messages: 0

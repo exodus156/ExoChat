@@ -20,3 +20,7 @@
 .modal-trigger:hover{
     cursor: pointer;
 }
+
+.hidden{
+    display: none;
+}
